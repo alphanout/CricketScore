@@ -19,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
     }
 
     public void p6a(View v) {
@@ -102,7 +103,7 @@ public class MainActivity extends AppCompatActivity {
         displayB();
         displayoutB();
         displayoutA();
-        toast("Scores reset", 176);
+        toastfast("Scores reset", Toast.LENGTH_LONG, 176);
     }
 
     public void outa(View view) {
@@ -150,8 +151,14 @@ public class MainActivity extends AppCompatActivity {
 
         Toast toast = new Toast(getApplicationContext());
         toast.setGravity(Gravity.BOTTOM | Gravity.CENTER_VERTICAL, 0, yOffset);
-        toast.setDuration(Toast.LENGTH_SHORT);
+        toast.setDuration(Toast.LENGTH_LONG);
         toast.setView(layout);
+        toast.show();
+    }
+
+    public void toastfast(String msg, int time, int yOffset) {
+        Toast toast = Toast.makeText(getApplicationContext(), msg, time);
+        toast.setGravity(Gravity.BOTTOM | Gravity.CENTER_VERTICAL, 0, yOffset);
         toast.show();
     }
 }
